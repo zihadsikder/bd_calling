@@ -1,23 +1,26 @@
+import 'package:bd_calling/app/data/models/post_models.dart';
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
-  //TODO: Implement HomeController
+import '../../../data/models/network_response.dart';
+import '../../../domain/repositories/post_repository.dart';
 
-  final count = 0.obs;
+class HomeController extends GetxController {
+  final isLoading = false.obs;
+  final posts  = <PostModel>[].obs;
   @override
   void onInit() {
     super.onInit();
+    getPosts();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  Future<void> getPosts() async {
+    isLoading.value = true;
+    final NetworkResponse response = await PostRepository.getPosts();
+    if (response.isSuccess) {
+      posts.value = postModelFromJson(response.jsonResponse!);
+
+    }
+    isLoading.value = false;
   }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }
