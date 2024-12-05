@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
-  //TODO: Implement PostHiveController
+class WaetherHiveController extends GetxController {
+  //TODO: Implement WaetherHiveController
 
   final count = 0.obs;
   @override

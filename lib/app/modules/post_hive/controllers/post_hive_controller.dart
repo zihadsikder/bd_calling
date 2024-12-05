@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
+class PostHiveController extends GetxController {
   //TODO: Implement PostHiveController
 
   final count = 0.obs;
