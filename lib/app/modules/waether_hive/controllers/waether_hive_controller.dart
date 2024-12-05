@@ -1,23 +1,53 @@
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
+
+import '../../../data/models/network_response.dart';
+import '../../../data/models/weather/weather_model.dart';
+import '../../../domain/repositories/weather_repository.dart';
 
 class WaetherHiveController extends GetxController {
-  //TODO: Implement WaetherHiveController
+  final isLoading = false.obs;
+  final weather = Rx<WeatherModel?>(null);
 
-  final count = 0.obs;
+  late Box<WeatherModel> weatherBox;
+
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
+    await initHive(); // Initialize and load the box
+    fetchWeather("Dhaka");
+    loadWeather();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  Future<void> initHive() async {
+    // Open the weather box and assign it to the weatherBox variable
+    weatherBox = await Hive.openBox<WeatherModel>('weather');
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  Future<void> loadWeather() async {
+    if (weatherBox.isNotEmpty) {
+      // Load cached data if available
+      weather.value = weatherBox.values.first;
+    } else {
+      await fetchWeather("Dhaka");
+    }
   }
 
-  void increment() => count.value++;
+  Future<void> fetchWeather(String cityName) async {
+    isLoading.value = true;
+
+    final NetworkResponse response =
+    await WeatherRepository.fetchWeather(cityName);
+    if (response.isSuccess) {
+      final fetchedWeather = weatherModelFromJson(response.jsonResponse!);
+
+      // Save to Hive for offline access
+      await weatherBox.clear(); // Clear old data
+      await weatherBox.add(fetchedWeather); // Save the fetched weather
+
+      // Update the observable
+      weather.value = fetchedWeather;
+    }
+    isLoading.value = false;
+  }
 }

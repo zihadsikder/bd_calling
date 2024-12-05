@@ -39,7 +39,7 @@ class PostHiveView extends GetView<PostHiveController> {
                     Expanded(
                       child: Text(
                         post.title ?? "No Title",
-                        style: AppTextStyle.headerStyle(),
+                        style: AppTextStyle.headerTextStyle(),
                         overflow: TextOverflow.ellipsis, // Truncate long text
                       ),
                     ),

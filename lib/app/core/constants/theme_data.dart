@@ -12,7 +12,7 @@ class AppThemeData {
 
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.bgColor,
-      titleTextStyle: AppTextStyle.headerStyle(),
+      titleTextStyle: AppTextStyle.headerTextStyle(),
     ),
 
     listTileTheme: ListTileThemeData(

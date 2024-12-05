@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppTextStyle {
-
-  static TextStyle headerStyle({Color color = Colors.black}) {
+  static TextStyle headerTextStyle(
+      {Color color = Colors.black, double fontSize = 20}) {
     return TextStyle(
-      fontSize: 20,
+      fontSize: fontSize,
       fontWeight: FontWeight.w600,
       color: color,
       height: 1.5,
