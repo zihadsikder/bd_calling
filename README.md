@@ -14,6 +14,8 @@ Fetching Data from a REST API ( Assignment 1)
 
 
 ## Getting Started
+### Screenshot
+![ass1](https://github.com/user-attachments/assets/5d669a75-ef8b-4873-a644-1f981cacce4d)
 
 ### Prerequisites
 
