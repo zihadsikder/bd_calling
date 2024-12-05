@@ -8,9 +8,30 @@ Fetching Data from a REST API ( Assignment 1)
 - Responsive and clean UI design
 - State management using GetX
 
+
+Offline Capabilities with Local Storage using hive ( Assignment 2)
+
+## Features
+
+- Display a list of albums fetched from a REST API
+- Responsive and clean UI design
+- locally using a local database(Hive).
+- State management using GetX
+
+
+Third-Party API Integration Make a weather app -OpenWeatherMap for weather data} ( Assignment 3)
+
+## Features
+
+- Display weather data of Dhaka city fetched from a REST API
+- Responsive and clean UI design
+- locally using a local database(Hive).
+- State management using GetX
+
+
 ## Apk File Link
 
-[Download the APK](https://drive.google.com/file/d/1gHSAknEKr4VLErhVM240dYCsHvn6i19b/view?usp=sharing)
+[Download the APK](https://drive.google.com/file/d/1TIAXQD_80Py1kt_HAxScE0H8qsOi3lyD/view?usp=sharing)
 
 
 ## Getting Started
