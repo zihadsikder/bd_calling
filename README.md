@@ -1,8 +1,7 @@
 # bd_calling
 
-Fetching Data from a REST API ( Assignment 1)
-
 ## Features
+Fetching Data from a REST API ( Assignment 1)
 
 - Display a list of albums fetched from a REST API
 - Responsive and clean UI design
@@ -11,8 +10,6 @@ Fetching Data from a REST API ( Assignment 1)
 
 Offline Capabilities with Local Storage using hive ( Assignment 2)
 
-## Features
-
 - Display a list of albums fetched from a REST API
 - Responsive and clean UI design
 - locally using a local database(Hive).
@@ -20,8 +17,6 @@ Offline Capabilities with Local Storage using hive ( Assignment 2)
 
 
 Third-Party API Integration Make a weather app -OpenWeatherMap for weather data} ( Assignment 3)
-
-## Features
 
 - Display weather data of Dhaka city fetched from a REST API
 - Responsive and clean UI design
@@ -37,6 +32,7 @@ Third-Party API Integration Make a weather app -OpenWeatherMap for weather data}
 ## Getting Started
 ### Screenshot
 ![ass1](https://github.com/user-attachments/assets/5d669a75-ef8b-4873-a644-1f981cacce4d)
+![WhatsApp Image 2024-12-05 at 17 49 03_6b5f2cc9](https://github.com/user-attachments/assets/9e7bbed8-69d3-4157-af9a-56ab04909942)
 
 ### Prerequisites
 
