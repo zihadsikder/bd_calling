@@ -5,14 +5,21 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'app/core/constants/theme_data.dart';
 
 import 'app/data/models/hive/post_models.dart';
+import 'app/data/models/weather/weather_model.dart';
 import 'app/routes/app_pages.dart';
 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
-  Hive.registerAdapter(PostModelAdapter()); // Register adapter for PostModel
-  await Hive.openBox<PostModel>('posts');   // Open a box for storing posts
+
+  // Register unique adapters
+  Hive.registerAdapter(PostModelAdapter());
+  Hive.registerAdapter(WeatherModelAdapter());
+
+  //open hive box
+  await Hive.openBox<PostModel>('posts');
+  await Hive.openBox<WeatherModel>('weather');
   runApp(
     GetMaterialApp(
       title: "Assignment Two",

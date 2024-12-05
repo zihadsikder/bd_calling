@@ -34,7 +34,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.WAETHER_HIVE,
-      page: () => const WaetherHiveView(),
+      page: () => const WeatherHiveView(),
       binding: WaetherHiveBinding(),
     ),
   ];

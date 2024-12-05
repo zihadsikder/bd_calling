@@ -9,8 +9,8 @@ import '../../../core/constants/app_text_style.dart';
 import '../../../data/models/weather/weather_model.dart';
 import '../controllers/waether_hive_controller.dart';
 
-class WaetherHiveView extends GetView<WaetherHiveController> {
-  const WaetherHiveView({super.key});
+class WeatherHiveView extends GetView<WaetherHiveController> {
+  const WeatherHiveView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,30 +39,27 @@ class WaetherHiveView extends GetView<WaetherHiveController> {
         DateTime.fromMillisecondsSinceEpoch(weather.sunset! * 1000);
 
         return Center(
-          child: RefreshIndicator(
-            onRefresh: () async {
-              await controller.fetchWeather(weather.name ?? "Dhaka");
-            },
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  buildCityName(weather.name),
-                  const SizedBox(height: 10),
-                  buildDateTime(currentDateTime),
-                  buildWeatherIcon(weather.icon),
-                  const SizedBox(height: 10),
-                  buildTemperature(weather.temp),
-                  const SizedBox(height: 5),
-                  buildDescription(weather.description),
-                  const SizedBox(height: 24.0),
-                  buildWeatherDetails(context, weather, sunriseTime, sunsetTime),
-                ],
-              ),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                //if (weather.name != null) buildCityName(weather.name!),
+                buildCityName(weather.name),
+                const SizedBox(height: 10),
+                buildDateTime(currentDateTime),
+                buildWeatherIcon(weather.icon),
+                const SizedBox(height: 10),
+                buildTemperature(weather.temp),
+                const SizedBox(height: 5),
+                buildDescription(weather.description),
+                const SizedBox(height: 24.0),
+                buildWeatherDetails(context, weather, sunriseTime, sunsetTime),
+              ],
             ),
           ),
         );
       }),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.secondaryColor,
         onPressed: () async {
           await controller.fetchWeather("Dhaka");
         },
@@ -94,12 +91,22 @@ class WaetherHiveView extends GetView<WaetherHiveController> {
     );
   }
 
-  Widget buildWeatherIcon(String? iconCode) {
-    return Image.network(
-      "https://openweathermap.org/img/w/$iconCode.png",
-      width: 100,
-      height: 100,
-    );
+    Widget buildWeatherIcon(String? iconCode) {
+      return Image.network(
+        "https://openweathermap.org/img/w/$iconCode.png",
+        width: 100,
+        height: 100,
+        errorBuilder: (context, error, stackTrace) {
+          // Fallback to a local placeholder image if the network fails
+          return Image.asset(
+            'assets/images/weather.png', // Path to your local placeholder image
+            width: 100,
+            height: 100,
+          );
+        },
+      );
+    }
+
   }
 
   Widget buildTemperature(double? temp) {
@@ -145,4 +152,4 @@ class WaetherHiveView extends GetView<WaetherHiveController> {
       ),
     );
   }
-}
+

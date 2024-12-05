@@ -11,7 +11,7 @@ class AppThemeData {
     primarySwatch: Colors.green,
 
     appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.bgColor,
+      backgroundColor: AppColors.screenBgColor,
       titleTextStyle: AppTextStyle.headerTextStyle(),
     ),
 
@@ -29,5 +29,17 @@ class AppThemeData {
         borderRadius: BorderRadius.circular(8.0),
       ),
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style:  ElevatedButton.styleFrom(
+      backgroundColor: AppColors.secondaryColor,
+      foregroundColor: AppColors.bgColor,
+      padding: const EdgeInsets.symmetric( vertical: 12),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12)
+      ),
+      elevation: 5,
+        minimumSize: const Size(240, 48),
+    ),
+    )
   );
 }
